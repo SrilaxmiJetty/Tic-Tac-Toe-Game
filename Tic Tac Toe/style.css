@@ -1,0 +1,89 @@
+body {
+  background-color: #000000;
+}
+.container {
+  margin: auto;
+  margin-bottom: 2rem;
+  padding: 0;
+  color: #ffffff;
+  max-width: 100vw;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  font-family: "Itim", cursive;
+  font-style: italic;
+}
+.game-board {
+  margin: 0 auto;
+  display: grid;
+  color: #ffffff;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  width: 250px;
+}
+
+.cell {
+  margin: 0;
+  background-color: #12181b;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 1px #ffffff;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  align-items: center;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.cell.winning-cell {
+  animation: highliteWinningPattern;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+
+  z-index: 20;
+}
+
+@keyframes highliteWinningPattern {
+  0% {
+    outline: 0px solid #88ff00;
+  }
+  50% {
+    outline: 10px solid #88ff00;
+  }
+  100% {
+    outline: 0px solid #88ff00;
+  }
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+  /* background-color: rgba(255, 255, 255, 0.25); */
+}
+
+.cell:disabled:not(.filled) {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cell:hover:not(:disabled) {
+  background-color: #fafda23a;
+}
+
+.reset {
+  background-color: #ff3860;
+}
+
+.reset:hover {
+  background-color: #f77c95;
+}
+
+.game_status_msg {
+  font-size: 2rem;
+}
